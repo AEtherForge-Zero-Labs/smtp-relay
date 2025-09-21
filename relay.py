@@ -36,4 +36,7 @@ if __name__ == "__main__":
     controller = Controller(MailgunHandler(), hostname=hostname, port=port)
     controller.start()
     print(f"SMTP relay listening on {hostname}:{port}")
-    asyncio.get_event_loop().run_forever()
+
+    loop = asyncio.new_event_loop()
+    asyncio.set_event_loop(loop)
+    loop.run_forever()
